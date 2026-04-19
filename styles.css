@@ -1,0 +1,352 @@
+/* =============================================================
+   RESTAURANT LINKTREE — styles.css
+   ============================================================= */
+
+/* ── CSS Custom Properties (easy to customize) ─────────────── */
+:root {
+  /* Brand colours */
+  --color-bg-from: #1a0a00;
+  --color-bg-to:   #2d1200;
+  --color-accent:  #e8a045;
+  --color-text:    #f5ede0;
+  --color-text-muted: rgba(245, 237, 224, 0.65);
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-border:  rgba(255, 255, 255, 0.10);
+
+  /* Social brand colours */
+  --whatsapp:  #25d366;
+  --snapchat:  #fffc00;
+  --tiktok:    #010101;
+  --instagram: #e1306c;
+
+  /* Spacing & sizing */
+  --max-width:   440px;
+  --btn-radius:  999px;
+  --card-radius: 20px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  background: radial-gradient(ellipse at top, #3b1800 0%, var(--color-bg-from) 55%, #0d0500 100%);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px 60px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Animated background blobs ─────────────────────────────── */
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: blobFloat 12s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+  width: 420px; height: 420px;
+  background: rgba(232, 160, 69, 0.18);
+  top: -120px; left: -100px;
+  animation-duration: 14s;
+}
+
+.blob-2 {
+  width: 300px; height: 300px;
+  background: rgba(192, 80, 20, 0.16);
+  top: 40%; right: -80px;
+  animation-duration: 10s;
+  animation-delay: -4s;
+}
+
+.blob-3 {
+  width: 260px; height: 260px;
+  background: rgba(255, 180, 60, 0.10);
+  bottom: 60px; left: 20%;
+  animation-duration: 16s;
+  animation-delay: -7s;
+}
+
+@keyframes blobFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 40px) scale(1.08); }
+}
+
+/* ── Main container ─────────────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Logo ───────────────────────────────────────────────────── */
+.logo-wrapper {
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(-30px) scale(0.85);
+  animation: fadeSlideDown 0.7s var(--ease-out-expo) 0.1s forwards;
+}
+
+.logo-placeholder {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #c05014 0%, #e8a045 100%);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  box-shadow:
+    0 8px 32px rgba(232, 160, 69, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* ── Restaurant name & description ─────────────────────────── */
+.restaurant-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 6px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s var(--ease-out-expo) 0.25s forwards;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s var(--ease-out-expo) 0.35s forwards;
+}
+
+.description {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 360px;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s var(--ease-out-expo) 0.45s forwards;
+}
+
+/* ── Links / buttons ────────────────────────────────────────── */
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 0.25s var(--ease-out-expo),
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  /* Staggered entrance animations set via JS */
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+}
+
+/* Hover / active states */
+.link-btn:hover,
+.link-btn:focus-visible {
+  transform: translateY(-3px) scale(1.02);
+  outline: none;
+}
+
+.link-btn:active {
+  transform: scale(0.97);
+}
+
+/* Ripple layer */
+.link-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.07);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.link-btn:hover::after { opacity: 1; }
+
+/* Per-brand accent colours */
+.link-btn.whatsapp {
+  border-color: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.10);
+}
+.link-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.14);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.22);
+}
+
+.link-btn.snapchat {
+  border-color: rgba(255, 252, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(255, 252, 0, 0.08);
+}
+.link-btn.snapchat:hover {
+  background: rgba(255, 252, 0, 0.10);
+  box-shadow: 0 6px 28px rgba(255, 252, 0, 0.18);
+}
+
+.link-btn.tiktok {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.20);
+}
+.link-btn.tiktok:hover {
+  background: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 6px 28px rgba(255, 255, 255, 0.08);
+}
+
+.link-btn.instagram {
+  border-color: rgba(225, 48, 108, 0.35);
+  box-shadow: 0 4px 20px rgba(225, 48, 108, 0.10);
+}
+.link-btn.instagram:hover {
+  background: rgba(225, 48, 108, 0.14);
+  box-shadow: 0 6px 28px rgba(225, 48, 108, 0.22);
+}
+
+/* Icon badge */
+.btn-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: transform 0.25s var(--ease-out-expo);
+}
+
+.link-btn:hover .btn-icon {
+  transform: rotate(-8deg) scale(1.15);
+}
+
+.whatsapp  .btn-icon { background: rgba(37, 211, 102, 0.20); color: var(--whatsapp); }
+.snapchat  .btn-icon { background: rgba(255, 252, 0,  0.18); color: var(--snapchat); }
+.tiktok    .btn-icon { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.instagram .btn-icon { background: rgba(225, 48,  108, 0.20); color: var(--instagram); }
+
+/* Label */
+.btn-label {
+  flex: 1;
+  text-align: left;
+}
+
+/* Arrow chevron */
+.btn-arrow {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: transform 0.25s var(--ease-out-expo), color 0.2s ease;
+}
+.link-btn:hover .btn-arrow {
+  transform: translateX(4px);
+  color: var(--color-text);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer {
+  margin-top: 48px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease-out-expo) 1.2s forwards;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+@keyframes fadeSlideDown {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob { animation: none; }
+
+  .logo-wrapper,
+  .restaurant-name,
+  .tagline,
+  .description,
+  .link-btn,
+  .footer {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Responsive tweaks ──────────────────────────────────────── */
+@media (max-width: 420px) {
+  body { padding: 28px 12px 48px; }
+
+  .logo-placeholder { width: 84px; height: 84px; font-size: 40px; }
+
+  .link-btn { padding: 14px 16px; }
+
+  .btn-icon { width: 36px; height: 36px; font-size: 1.1rem; }
+}

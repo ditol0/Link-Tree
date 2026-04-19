@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ============================================================
+         CUSTOMIZE: Update the title to your restaurant name
+    ============================================================ -->
+    <title>La Cucina — Find Us Online</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for social icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Animated background blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <main class="container">
+      <!-- ============================================================
+           CUSTOMIZE: Replace "logo-placeholder" with an <img> tag
+           pointing to your logo file, e.g.:
+             <img src="logo.png" alt="La Cucina Logo" />
+      ============================================================ -->
+      <div class="logo-wrapper" id="logo">
+        <div class="logo-placeholder">
+          <span>🍽️</span>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           CUSTOMIZE: Update restaurant name and description below
+      ============================================================ -->
+      <h1 class="restaurant-name" id="name">La Cucina</h1>
+      <p class="tagline" id="tagline">Authentic Italian Flavors Since 1998</p>
+      <p class="description" id="description">
+        Handcrafted pasta, wood-fired pizza, and warm hospitality —
+        right in the heart of the city. Come taste the difference.
+      </p>
+
+      <!-- Social / link buttons -->
+      <!-- ============================================================
+           CUSTOMIZE: Replace the href values with your actual links.
+           You can add or remove <a> elements as needed.
+      ============================================================ -->
+      <nav class="links" aria-label="Social media links">
+
+        <!-- WhatsApp -->
+        <a
+          href="https://wa.me/15551234567"
+          class="link-btn whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with us on WhatsApp"
+        >
+          <span class="btn-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </span>
+          <span class="btn-label">WhatsApp Us</span>
+          <span class="btn-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- Snapchat -->
+        <a
+          href="https://www.snapchat.com/add/lacucina.official"
+          class="link-btn snapchat"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Snapchat"
+        >
+          <span class="btn-icon">
+            <i class="fa-brands fa-snapchat"></i>
+          </span>
+          <span class="btn-label">Snapchat</span>
+          <span class="btn-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- TikTok -->
+        <a
+          href="https://www.tiktok.com/@lacucina.official"
+          class="link-btn tiktok"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on TikTok"
+        >
+          <span class="btn-icon">
+            <i class="fa-brands fa-tiktok"></i>
+          </span>
+          <span class="btn-label">TikTok</span>
+          <span class="btn-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- Instagram (optional — remove the block below to hide it) -->
+        <a
+          href="https://www.instagram.com/lacucina.official"
+          class="link-btn instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Instagram"
+        >
+          <span class="btn-icon">
+            <i class="fa-brands fa-instagram"></i>
+          </span>
+          <span class="btn-label">Instagram</span>
+          <span class="btn-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+
+      </nav>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> La Cucina · All rights reserved</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
